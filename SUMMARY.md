@@ -25,7 +25,8 @@
 
 ## TypeScript
 
-* [Page 1](typescript/page-1.md)
+* [Instalación](typescript/instalacion.md)
+* [TS Basics](typescript/ts-basics.md)
 
 ## Misc
 
