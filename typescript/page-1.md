@@ -7,24 +7,24 @@ description: Explicación de los pasos necesarios para configurar nuestro proyec
 ### 1. Instalación de dependencias
 
 ```bash
-// Comprobar instalación de node (https://nodejs.org) y npm (Gestor de dependencias de proyectos).
-node --version
-npm --version
+# Comprobar instalación de node (https://nodejs.org) y npm (Gestor de dependencias de proyectos).
+> node --version
+> npm --version
 
-// Inicializaremos el archivo de configuración de dependencias
-npm init
+# Inicializaremos el archivo de configuración de dependencias
+> npm init
 
-// Instalaremos dependencias de desarrollo de Typescript para nodejs
-npm i --save-dev @types/node
+# Instalaremos dependencias de desarrollo de Typescript para nodejs
+> npm i --save-dev @types/node
 
-// Herramienta para recargar nodejs cada vez se detecten cambios en los archivos
-npm i --save-dev nodemon
+# Herramienta para recargar nodejs cada vez se detecten cambios en los archivos
+> npm i --save-dev nodemon
 
-// Encargado de ejecutar archivos .ts sin tener que transpilar el codigo a .js
-npm i --save-dev ts-node
+# Encargado de ejecutar archivos .ts sin tener que transpilar el codigo a .js
+> npm i --save-dev ts-node
 
-// Typescript (Transpila .ts a JS standard)
-npm i --save-dev typescript
+# Typescript (Transpila .ts a JS standard)
+> npm i --save-dev typescript
 
 ```
 
@@ -32,12 +32,12 @@ npm i --save-dev typescript
 
 Archivo en el que definimos como debe transpilarse el código de TS a JS.
 
-```
-// OPCION 1: Generar el archivo de configuración básico
-npx tsc --init
+```bash
+# OPCION 1: Generar el archivo de configuración básico
+> npx tsc --init
 
-// OPCIÓN 2: Crear archivo de configuración personalizado
-npx tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModule --lib es6 --module commonjs --allowjs --noImplicitAny
+# OPCIÓN 2: Crear archivo de configuración personalizado
+> npx tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModule --lib es6 --module commonjs --allowjs --noImplicitAny
 ```
 
 #### 2.1. Typescript CLI Documentation&#x20;
@@ -46,29 +46,31 @@ npx tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModul
 
 ### 3. Archivo de configuración de `nodemon.json`
 
-```json
-// Crear archivo nodemon.json en la carpeta del proyecto
+Crear archivo nodemon.json en la carpeta del proyecto
 
+```json
 {
     "watch": ["src"],
     "ext": ".ts, .js"
     "ignore": ["node_modules"]
     "exec": "ts-node ./src/index.ts"
 }
-
 ```
 
 ### 4. Scripts para `package.json`
 
 ```json
-// Podemos ejecutar nuestros scripts con el siguiente código
-// > npm run tsnode
-
 "scripts" : {
  "tsnode" : "cd src && ts-node index.ts",
  "start" : "nodemon",
  "transpilation" : "tsc"
 }
+```
+
+Podemos ejecutar nuestros <mark style="color:red;">scripts</mark> con el siguiente código:
+
+```bash
+> npm run tsnode
 ```
 
 ### Extra: VSCode Extensions para TS
