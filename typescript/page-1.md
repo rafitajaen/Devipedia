@@ -4,6 +4,10 @@ description: Explicación de los pasos necesarios para configurar nuestro proyec
 
 # Instalación
 
+### 0. Instalación lista para usar
+
+{% file src="../.gitbook/assets/00-ts-ready.zip" %}
+
 ### 1. Instalación de dependencias
 
 ```bash
@@ -14,19 +18,15 @@ description: Explicación de los pasos necesarios para configurar nuestro proyec
 # Inicializaremos el archivo de configuración de dependencias
 > npm init
 
-# Instalaremos dependencias de desarrollo de Typescript para nodejs
-> npm i --save-dev @types/node
-
-# Herramienta para recargar nodejs cada vez se detecten cambios en los archivos
-> npm i --save-dev nodemon
-
-# Encargado de ejecutar archivos .ts sin tener que transpilar el codigo a .js
-> npm i --save-dev ts-node
-
-# Typescript (Transpila .ts a JS standard)
-> npm i --save-dev typescript
-
+# Instalaremos como dependencias de desarrollo 
+> npm i --save-dev @types/node nodemon ts-node typescript rimraf
 ```
+
+* `@types/node` : Dependencias de desarrollo de Typescript para nodejs
+* `nodemon` : Herramienta para recargar nodejs cada vez se detecten cambios en los archivos
+* `ts-node` : Ejecuta archivos .ts sin tener que transpilar el codigo a .js
+* `typescript` : Transpila .ts a JS standard
+* `rimraf` : Rimraf
 
 ### 2. Generar archivo de configuración de Typescript: `tsconfig.json`
 
@@ -51,8 +51,8 @@ Crear archivo nodemon.json en la carpeta del proyecto
 ```json
 {
     "watch": ["src"],
-    "ext": ".ts, .js"
-    "ignore": ["node_modules"]
+    "ext": ".ts, .js",
+    "ignore": ["node_modules"],
     "exec": "ts-node ./src/index.ts"
 }
 ```
@@ -63,7 +63,9 @@ Crear archivo nodemon.json en la carpeta del proyecto
 "scripts" : {
  "tsnode" : "cd src && ts-node index.ts",
  "start" : "nodemon",
- "transpilation" : "tsc"
+ "transpilation" : "tsc",
+ "build:prod" : "rimraf ./build && tsc",
+ "start:prod" : "npm run build:prod && node build/index.js"
 }
 ```
 

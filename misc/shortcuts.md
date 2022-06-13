@@ -1,0 +1,3 @@
+# Shortcuts
+
+`Ctrl`+ `Space` : Suggestions
