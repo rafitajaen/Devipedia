@@ -4,7 +4,7 @@
 
 ## HTML
 
-* [Vision and Values](html/vision-and-values.md)
+* [Etiquetas Comunes](html/etiquetas-comunes.md)
 * [Meet the Team!](html/meet-the-team.md)
 
 ## CSS
