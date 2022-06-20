@@ -1,25 +1,21 @@
 # Table of contents
 
-* [Welcome!](README.md)
-
 ## HTML
 
-* [Etiquetas Comunes](html/etiquetas-comunes.md)
-* [Meet the Team!](html/meet-the-team.md)
+* [Etiquetas Comunes](README.md)
 
 ## CSS
 
-* [Requesting Time Off](css/requesting-time-off.md)
+* [Selectores](css/selectores.md)
+* [Pseudo-clases](css/pseudo-clases.md)
+* [Pseudo-elementos](css/pseudo-elementos.md)
+* [Reglas de especificidad](css/reglas-de-especificidad.md)
 
 ## JavaScript
 
 * [JS Basics](javascript/js-basics.md)
 * [Propagation and Destructing](javascript/propagation-and-destructing.md)
 * [Iteraciones](javascript/iteraciones.md)
-
-## Git
-
-* [Git Basics](git/git-basics.md)
 
 ## ReactJS
 
@@ -35,9 +31,3 @@
 ## 🎯 Dart
 
 * [Dart Basics](dart/dart-basics.md)
-
-## Misc
-
-* [VSCode](misc/vscode.md)
-* [npm](misc/npm.md)
-* [Shortcuts](misc/shortcuts.md)
