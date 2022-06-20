@@ -13,13 +13,11 @@
 
 ## JavaScript
 
-* [JS Basics](javascript/js-basics.md)
-* [Propagation and Destructing](javascript/propagation-and-destructing.md)
+* [Variables: var, const, let](javascript/variables-var-const-let.md)
+* [Desestructurar objetos y arrays](javascript/desestructurar-objetos-y-arrays.md)
 * [Iteraciones](javascript/iteraciones.md)
-
-## ReactJS
-
-* [ReactJS Basics](reactjs/reactjs-basics.md)
+* [Array Methods](javascript/array-methods.md)
+* [Spread operator "..."](javascript/spread-operator-....md)
 
 ## TypeScript
 
