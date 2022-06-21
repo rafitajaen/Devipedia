@@ -29,3 +29,7 @@
 ## 🎯 Dart
 
 * [Dart Basics](dart/dart-basics.md)
+
+## Resumen
+
+* [JS Resumen](resumen/js-resumen.md)
