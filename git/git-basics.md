@@ -135,7 +135,7 @@ Else, if yours unstaged changes don't have conflicts with other branches, you ca
 HEAD cannot reference the branch you want to remove.
 {% endhint %}
 
-<mark style="color:orange;">`git branch`</mark>` ```` `<mark style="color:purple;">`-d`</mark>` ```` `<mark style="color:orange;">`<branch>`</mark> : Only remove an existing branch if it is fully merged.
+<mark style="color:red;">`git branch`</mark>` ```` `<mark style="color:purple;">`-d`</mark>` ```` `<mark style="color:orange;">`<branch>`</mark> : Only remove an existing branch if it is fully merged.
 
 <mark style="color:red;">`git branch`</mark>` ```` `<mark style="color:purple;">`-D`</mark>` ```` `<mark style="color:orange;">`<branch>`</mark> : Force to delete an existing branch, even it is not fully merged.
 
@@ -143,3 +143,19 @@ HEAD cannot reference the branch you want to remove.
 
 <mark style="color:red;">`git branch`</mark>` ```` `<mark style="color:purple;">`-m`</mark>` ```` `<mark style="color:orange;">`<new-branch-name>`</mark> : Rename the current branch.
 
+#### Merging branches
+
+{% hint style="info" %}
+We merge branches, not specific commits.
+{% endhint %}
+
+{% hint style="warning" %}
+We always merge to the current HEAD branch.
+{% endhint %}
+
+```bash
+# Fast Forward Merge the bugfix branch into master
+
+> git switch master
+> git merge bugfix
+```
