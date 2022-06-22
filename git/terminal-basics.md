@@ -60,7 +60,7 @@ Touching an existing file just change the _modified time_ of a file.
 
 <mark style="color:red;">`rm`</mark>` ```` `<mark style="color:orange;">`<file-path1> <file-path2>`</mark>` ``...` : Delete file(s) from the given path(s).
 
-<mark style="color:red;">`rm -rf`</mark>` ```` `<mark style="color:orange;">`<folder1> <folder2>`</mark>` ``...` : Delete folder(s) from the current directory.
+<mark style="color:red;">`rm -rf`</mark>` ```` `<mark style="color:orange;">`<folder1> <folder2>`</mark>` ``...` : Delete folder(s) from the current directory.&#x20;
 
 {% hint style="danger" %}
 The delete actions **cannot** be undone.

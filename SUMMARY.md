@@ -22,6 +22,7 @@
 ## GIT
 
 * [Terminal Basics](git/terminal-basics.md)
+* [Git Basics](git/git-basics.md)
 
 ## TypeScript
 
