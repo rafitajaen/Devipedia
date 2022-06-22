@@ -19,6 +19,10 @@
 * [Array Methods](javascript/array-methods.md)
 * [Spread operator "..."](javascript/spread-operator-....md)
 
+## GIT
+
+* [Terminal Basics](git/terminal-basics.md)
+
 ## TypeScript
 
 * [Instalación](typescript/page-1.md)
