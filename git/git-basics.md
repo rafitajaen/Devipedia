@@ -20,7 +20,25 @@ Git is a version control software. It tracks and manages changes to files over t
 
 <mark style="color:red;">`git config`</mark>` ```` `<mark style="color:purple;">`--global`</mark>` ```` `<mark style="color:orange;">`user.email "email@email.com"`</mark> : Set user email.
 
+### Ignoring Files `.gitignore`
 
+Files you never want to commit:
+
+* Secrets, API Keys, credentials, etc.
+* Operating System Files (.DS\_Store)
+* Log files (because you can regenerate the easily)
+* Dependencies & packages (you can import them whenever you want)
+
+```bash
+# You can prepend a pattern with a double asterisk to match directories anywhere in the repository.
+**/logs
+
+# An asterisk is a wildcard that matches zero or more characters.
+*.log
+
+# Appending a slash indicates the pattern is a directory. The entire contents of any directory in the repository matching that name – including all of its files and subdirectories – will be ignored
+logs/
+```
 
 ### First Commands
 
@@ -77,4 +95,51 @@ It also makes your project easier to be reviewed.
 > git add forgotten_file
 > git commit --amend
 ```
+
+### Branches
+
+The default branch name in Git is `master`. In GitHub is `main`.
+
+HEAD is simply a pointer that refers to the current location in your repository. It points to the reference of the lastest commit you made in a branch.
+
+#### Create branches
+
+<mark style="color:red;">`git branch`</mark> : to view existing branches.
+
+<mark style="color:red;">`git branch`</mark>` ```` `<mark style="color:orange;">`<name>`</mark> : Make a new branch based upon the current HEAD.
+
+#### Switch between branches
+
+<mark style="color:red;">`git switch`</mark>` ```` `<mark style="color:orange;">`<branch>`</mark> : Switch HEAD to a existing branch.
+
+<mark style="color:red;">`git switch`</mark>` ```` `<mark style="color:purple;">`-c`</mark>` ```` `<mark style="color:orange;">`<new-branch>`</mark> : Create a new branch and switch it.
+
+#### Switching branches with unstaged changes
+
+If yours unstaged changes have conflicts with other branches, you only can:
+
+* commit changes, or
+* stash changes
+
+Else, if yours unstaged changes don't have conflicts with other branches, you can switch branches and still preserve yours unstaged changes.
+
+**Alternative commands for switch branches**
+
+<mark style="color:red;">`git checkout`</mark>` ```` `<mark style="color:orange;">`<branch>`</mark> : (Old) Switch HEAD to a existing branch.
+
+<mark style="color:red;">`git checkout`</mark>` ```` `<mark style="color:purple;">`-b`</mark>` ```` `<mark style="color:orange;">`<new-branch>`</mark> : (Old) Create a new branch and switch it.
+
+#### Delete branches
+
+{% hint style="danger" %}
+HEAD cannot reference the branch you want to remove.
+{% endhint %}
+
+<mark style="color:orange;">`git branch`</mark>` ```` `<mark style="color:purple;">`-d`</mark>` ```` `<mark style="color:orange;">`<branch>`</mark> : Only remove an existing branch if it is fully merged.
+
+<mark style="color:red;">`git branch`</mark>` ```` `<mark style="color:purple;">`-D`</mark>` ```` `<mark style="color:orange;">`<branch>`</mark> : Force to delete an existing branch, even it is not fully merged.
+
+#### Rename branches
+
+<mark style="color:red;">`git branch`</mark>` ```` `<mark style="color:purple;">`-m`</mark>` ```` `<mark style="color:orange;">`<new-branch-name>`</mark> : Rename the current branch.
 
