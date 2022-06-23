@@ -190,9 +190,31 @@ It is useful to view changes between commits, branches, files.
 
 <mark style="color:red;">`git diff`</mark>` `<mark style="color:orange;">`<branch1>`</mark>`..`<mark style="color:orange;">`<branch2>`</mark> : Diff all the files
 
-<mark style="color:red;">`git diff`</mark>` `<mark style="color:orange;">`<commit-hash1>`</mark>`..`<mark style="color:orange;">`<commit-hash2>`</mark> : Diff all the files
+<mark style="color:red;">`git diff`</mark>` `<mark style="color:orange;">`<commit-hash1>`</mark>`..`<mark style="color:orange;">`<commit-hash2>`</mark> : Diff all the files.
 
-#### Delete branches
+### Git Stash
+
+
+
+### Git Checkout
+
+The command git checkout is overloaded. You can use checkout to:
+
+* Create new branches (Alias: git switch -c \<branch>)
+* Switch branches (Alias: git switch \<branch>)
+* Restore files (Alias: git restore \<filename>)
+* **Travel to a particular commit**
+* Discard changes
+
+<mark style="color:red;">`git checkout`</mark>` `<mark style="color:orange;">`<commit-hash>`</mark> : <mark style="color:red;">**\[DETACHED HEAD]**</mark> Travel to a particular commit.&#x20;
+
+<mark style="color:red;">`git switch -`</mark> : Re-atach HEAD pointer to current branch.
+
+{% hint style="info" %}
+**Detached HEAD state:**
+
+In detached HEAD state you can look around, make experimental changes and discard any commits you make in this state without impacting any branches by switching back to a branch.
+{% endhint %}
 
 
 
