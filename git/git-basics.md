@@ -110,6 +110,8 @@ HEAD is simply a pointer that refers to the current location in your repository.
 
 <mark style="color:red;">`git branch`</mark>` ```` `<mark style="color:orange;">`<name>`</mark> : Make a new branch based upon the current HEAD.
 
+<mark style="color:red;">`git branch`</mark>` ```` `<mark style="color:orange;">`<new-branch> <commit-hash>`</mark> : Make a new branch from \<commit-hash>.
+
 #### Switch between branches
 
 <mark style="color:red;">`git switch`</mark>` ```` `<mark style="color:orange;">`<branch>`</mark> : Switch HEAD to a existing branch.
@@ -192,7 +194,29 @@ It is useful to view changes between commits, branches, files.
 
 <mark style="color:red;">`git diff`</mark>` `<mark style="color:orange;">`<commit-hash1>`</mark>`..`<mark style="color:orange;">`<commit-hash2>`</mark> : Diff all the files.
 
-### Git Stash
+### Git Stash (reserva)
+
+Helps you to save changes tant you are not ready to commit. Running git stash takes all uncommited changes (SA and WA) and stash them, reverting the changes in your WD.
+
+<mark style="color:red;">`git stash`</mark> : Stash uncommited changes.
+
+<mark style="color:red;">`git stash`</mark>` ```` `<mark style="color:purple;">`pop`</mark> : Remove last "stash" from stack and apply it to your WD (wherever you are).
+
+<mark style="color:red;">`git stash`</mark>` ```` `<mark style="color:purple;">`list`</mark> : List of stashes.
+
+{% hint style="info" %}
+Stashes are store in Stack (LIFO)
+{% endhint %}
+
+#### Work with multiple stashes
+
+<mark style="color:red;">`git stash`</mark>` `<mark style="color:purple;">`apply`</mark> : Apply last "stash", without removing it from stash Stack. This is useful for apply stashed changes to multiple branches.
+
+<mark style="color:red;">`git stash`</mark>` ```` `<mark style="color:purple;">`apply`</mark>` ```` `<mark style="color:orange;">`stash@{2}`</mark> : Apply stash@{2} to your WD. Its not removed from the Stack
+
+<mark style="color:red;">`git stash`</mark>` ```` `<mark style="color:purple;">`drop`</mark>` ```` `<mark style="color:orange;">`stash@{2}`</mark> : Remove custom stash from stack.
+
+<mark style="color:red;">`git stash`</mark>` ```` `<mark style="color:purple;">`clear`</mark> : Clear stash stack.
 
 
 
@@ -208,6 +232,8 @@ The command git checkout is overloaded. You can use checkout to:
 
 <mark style="color:red;">`git checkout`</mark>` `<mark style="color:orange;">`<commit-hash>`</mark> : <mark style="color:red;">**\[DETACHED HEAD]**</mark> Travel to a particular commit.&#x20;
 
+<mark style="color:red;">`git checkout`</mark>` `<mark style="color:green;">`HEAD~1`</mark> : <mark style="color:red;">**\[DETACHED HEAD]**</mark> Travel to the last commit before HEAD (parent).
+
 <mark style="color:red;">`git switch -`</mark> : Re-atach HEAD pointer to current branch.
 
 {% hint style="info" %}
@@ -216,5 +242,49 @@ The command git checkout is overloaded. You can use checkout to:
 In detached HEAD state you can look around, make experimental changes and discard any commits you make in this state without impacting any branches by switching back to a branch.
 {% endhint %}
 
+#### Restore changes
 
+<mark style="color:red;">`git restore`</mark>` `<mark style="color:orange;">`<filename1>`</mark>` ``...` : Restore the filename snapshot in the last commit.
+
+<mark style="color:red;">`git restore`</mark>` `<mark style="color:purple;">`--source`</mark>` `<mark style="color:red;">``</mark>` `<mark style="color:green;">`HEAD~1`</mark><mark style="color:orange;">`<filename1>`</mark>` ``...` : Restore filename snapshot in HEAD\~1
+
+<mark style="color:red;">`git restore`</mark>` `<mark style="color:purple;">`--source`</mark>` `<mark style="color:red;">``</mark>` `<mark style="color:green;">`<commit-hash>`</mark>` `<mark style="color:orange;">`<filename1>`</mark>` ``...` : Alias from previous command.
+
+{% hint style="info" %}
+**Aliases for **_**git restore**_**:**
+
+<mark style="color:red;">`git checkout`</mark>` ```` `<mark style="color:green;">`HEAD`</mark>` ```` `<mark style="color:orange;">`<filename1>`</mark>` ``...`
+
+<mark style="color:red;">`git checkout`</mark>` ```` `<mark style="color:green;">`--`</mark>` ```` `<mark style="color:orange;">`<filename1>`</mark>` ``...`
+{% endhint %}
+
+#### Unstage changes
+
+<mark style="color:red;">`git restore`</mark>` `<mark style="color:purple;">`--staged`</mark><mark style="color:orange;">`<filename1>`</mark>` ``...` : Unstage file(s).
+
+### Git Reset&#x20;
+
+\[For SOLO Projects] Undo commits changing the historic commits log.&#x20;
+
+#### Soft Reset
+
+<mark style="color:red;">`git reset`</mark>` ```` `<mark style="color:orange;">`<commit-hash>`</mark> : <mark style="color:red;">**\[UNDOABLE]**</mark> Reset the repo back to a specific commit and changes remain in your working directory. It is useful when you commit in a wrong branch.
+
+#### Hard Reset
+
+<mark style="color:red;">`git reset`</mark>` ```` `<mark style="color:purple;">`--hard`</mark>` ```` `<mark style="color:orange;">`<commit-hash>`</mark> : <mark style="color:red;">**\[UNDOABLE]**</mark> Delete al commits and associate changes.
+
+<mark style="color:red;">`git reset`</mark>` ```` `<mark style="color:purple;">`--hard`</mark>` ```` `<mark style="color:green;">`HEAD~1`</mark> : <mark style="color:red;">**\[UNDOABLE]**</mark> Alias for previous command.
+
+{% hint style="success" %}
+**Git reset** delete commits and moves the branch pointer backwards. **Git revert** instead creates a brand new commit reversing the changes from a commit.
+
+For _collaborative and remote projects_ you must use **git revert** because changing history can produce errors.
+{% endhint %}
+
+### Git Revert
+
+\[For collaborative projects] Make a brand new commit with a former commit.
+
+<mark style="color:red;">`git revert`</mark>` ```` `<mark style="color:orange;">`<commit-hash>`</mark> : Revert \<commit-hash>
 
