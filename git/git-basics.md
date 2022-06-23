@@ -56,6 +56,8 @@ A Git _"repo"_ is a workspace wich tracks and manage files within a folder.
 
 <mark style="color:red;">`git log`</mark> : A log of the commits for a given repo.
 
+<mark style="color:red;">`git log`</mark>` `<mark style="color:purple;">`--oneline`</mark> : A resuming log of the commits for a given repo.
+
 ### Basic Git Workflow
 
 ![](../.gitbook/assets/basic-git-workflow.JPG)
@@ -159,3 +161,38 @@ We always merge to the current HEAD branch.
 > git switch master
 > git merge bugfix
 ```
+
+### Diff
+
+It is useful to view changes between commits, branches, files.
+
+![](<../.gitbook/assets/git diff commands.JPG>)
+
+<mark style="color:red;">`git diff`</mark> : List changes between Working directory and stagging area.
+
+<mark style="color:red;">`git diff`</mark>` ```` `<mark style="color:purple;">`--staged`</mark> : List changes between stagging area and last commit (HEAD)
+
+<mark style="color:red;">`git diff`</mark>` ```` `<mark style="color:green;">`HEAD`</mark> : List all changes in the working tree (WD and SA) since your last commit
+
+{% hint style="info" %}
+**`git diff --cached`**: It is an alias for _git diff --staged_
+{% endhint %}
+
+#### Diff specific files
+
+<mark style="color:red;">`git diff`</mark>` `<mark style="color:orange;">`<filename1>`</mark>` `<mark style="color:red;">``</mark>` ``...` : Working directory <--> stagging area.
+
+<mark style="color:red;">`git diff`</mark>` ```` `<mark style="color:purple;">`--staged`</mark>` `<mark style="color:orange;">`<filename1>`</mark>` `<mark style="color:purple;">``</mark>` ``...` : stagging area <--> last commit (HEAD)
+
+<mark style="color:red;">`git diff`</mark>` ```` `<mark style="color:green;">`HEAD`</mark>` `<mark style="color:orange;">`<filename1>`</mark>` ``...` : working tree (WD and SA) <--> last commit
+
+#### Comparing branches and commits
+
+<mark style="color:red;">`git diff`</mark>` `<mark style="color:orange;">`<branch1>`</mark>`..`<mark style="color:orange;">`<branch2>`</mark> : Diff all the files
+
+<mark style="color:red;">`git diff`</mark>` `<mark style="color:orange;">`<commit-hash1>`</mark>`..`<mark style="color:orange;">`<commit-hash2>`</mark> : Diff all the files
+
+#### Delete branches
+
+
+
