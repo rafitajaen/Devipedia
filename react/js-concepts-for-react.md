@@ -21,3 +21,17 @@ import help, {sing, sort} from './helpers';
 // Import from node_modules ( Directly 'module_name' )
 import React, {Components} from 'react';
 ```
+
+### Conditionals in JSX
+
+```jsx
+// Ternary operator for Conditionals
+{
+    num === 7
+        ? <img src="..." />
+        : null
+}
+
+// Sugar syntax
+{ num === 7 && <img src="..." /> }
+```

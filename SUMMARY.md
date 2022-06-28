@@ -18,6 +18,7 @@
 * [Iteraciones](javascript/iteraciones.md)
 * [Array Methods](javascript/array-methods.md)
 * [Spread operator "..."](javascript/spread-operator-....md)
+* [String Methods](javascript/string-methods.md)
 
 ## GIT
 
