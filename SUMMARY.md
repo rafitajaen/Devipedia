@@ -24,6 +24,10 @@
 * [Terminal Basics](git/terminal-basics.md)
 * [Git Basics](git/git-basics.md)
 
+## REACT
+
+* [React Basics](react/react-basics.md)
+
 ## TypeScript
 
 * [Instalación](typescript/page-1.md)
