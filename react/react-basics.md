@@ -51,12 +51,13 @@ Create React App Documentation
 
 ### React Conventions
 
-#### Top-Level Component be named App
+#### Top-Level Component should be named App
 
 * App acts as an entry point, and as a container for all other components.
 
 #### Use index.js to render \<App />
 
+{% code title="index.js" %}
 ```jsx
 import React from 'react'; 
 import ReactDOM from 'react-dom/client'; 
@@ -70,8 +71,9 @@ root.render(
     </React.StrictMode> 
     );
 ```
+{% endcode %}
 
-#### Component conventions
+#### Component Conventions
 
 * One component per file
 * Component name as filename : Eg. (Car.js for Car Component)
@@ -79,4 +81,50 @@ root.render(
 * Components extends Component (imported from React)
 * Export the Component as default object
 
-{% embed url="https://gist.github.com/rafitajaen/59dda38f9ec86f7c1d1564f0d6102057" %}
+{% code title="Example.js" %}
+```jsx
+// Import React for give context to an unknown code reader.
+import React, {Component} from 'react';
+
+// CRA will automatically combine all Components CSS in a single file
+import './Example.css'; 
+
+class Example extends Component { 
+
+    render() {
+        return (
+            <div className="Example"> 
+                <p className="Example-title"></p>
+                <p className="Example-subtitle"></p>            
+            </div>
+        }
+    }
+
+export default Example;
+```
+{% endcode %}
+
+### React Core Concepts
+
+```jsx
+// Some code
+```
+
+#### Component
+
+* A component is a React building block.&#x20;
+* It combines logic (JS) and presentation (JSX).
+
+#### Props
+
+* Props make components reusable and customizable.
+* Props are only passed from parent components to child components.&#x20;
+* Props are immutable (read-only) data. A component is not allowed to change its own props values.
+* Default values for props can be setted.
+
+It
+
+
+
+#### State
+
