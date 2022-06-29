@@ -10,6 +10,10 @@ You can add React to a website by doing [this](https://reactjs.org/docs/add-reac
 ReactJS Documentation
 {% endembed %}
 
+#### Chrome Extension (Dev Tools)
+
+{% embed url="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en" %}
+
 ### Create React App
 
 CRA is an utility script that:
@@ -81,7 +85,7 @@ root.render(
 * Components extends Component (imported from React)
 * Export the Component as default object
 
-{% code title="Example.js" %}
+{% code title="Example.jsx" %}
 ```jsx
 // 'import React' give context to the code reader.
 import React, {Component} from 'react';
@@ -169,10 +173,6 @@ export default Match.jsx
 ```
 {% endcode %}
 
-```
-// Some code
-```
-
 #### Component
 
 * A component is a React's building block.&#x20;
@@ -181,8 +181,8 @@ export default Match.jsx
 #### Props
 
 * Props make components reusable and customizable.
-* Props are only passed from parent components to child components.&#x20;
-* Props are immutable (read-only) data. A component is not allowed to change its own props values.
+* Props are only passed from parent components to child components. (Downward data flow pattern).
+* Props are **immutable** (read-only) data. A component is not allowed to change its own props values.
 * Default values for props can be setted.
 
 {% code title="Hello.jsx" %}
@@ -228,12 +228,56 @@ class ClickCounter extends Component {
 If a component is stateless you can omit the constructor function.
 {% endhint %}
 
-* **this.setState()**
+* `this.setState()`
   * It is used to update the component state.
-  * It is asynchronous. React controls when the state will actually change for perfonmance reasons because the component needs to be re-rendered.
+  * It is **asynchronous**. React controls when the state will actually change for perfonmance reasons because the component needs to be re-rendered. It's risky to assume previuos call has finished when you call it.
+
+```jsx
+/**
+* UPDATING PRIMITIVE STATES
+**/
+
+// Update state when it's independent from previous state
+this.setState( { status: "Connected", isLoading: false } );
+
+// Update state when it's dependant of previous state
+this.setState( previous => { counter: previous.counter + 1 } );
+
+/**
+* UPDATING MUTABLE DATA STRUCTURES
+**/
+
+this.state = {
+    todos: [
+        { task: "Learn JS", done: false, id: 1 },
+        { task: "Code", done: false, id: 2 },
+    ]
+};
+
+complete(id) {
+    const updatedTodos = this.state.todos.map( item => {
+                            (item.id === id)
+                                ? return {...item, done: true}
+                                : return item
+                        });
+    this.setState( { todos: updatedTodos} );
+}
+
+
+```
+
+* Types of state should be tracked:
+  * **UI logic**: Changing state of interface. (Eg. : isModalOpen, isLoading, etc)
+  * **Businness logic**: Changing state of data. (Eg. : notifications, counters, etc)
 
 {% hint style="danger" %}
 Don't call this.setState() inside constructor() because Component is not mounted yet.
+{% endhint %}
+
+{% hint style="success" %}
+**State Design**
+
+Minimize to put as little data in your state. If a value doesn't change, it should be a prop instead.
 {% endhint %}
 
 #### Events
@@ -246,6 +290,10 @@ Don't call this.setState() inside constructor() because Component is not mounted
 ```jsx
 <button onClick={ e => { console.log(e, 'Clicked') } } > Click Me! </button>
 ```
+
+{% embed url="https://reactjs.org/docs/events.html" %}
+Full list of React Events
+{% endembed %}
 
 ### Sugar Syntax for State and EventHandlers
 
@@ -294,3 +342,5 @@ class Box extends Component {
 }
 ```
 {% endcode %}
+
+###
