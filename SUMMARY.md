@@ -28,6 +28,7 @@
 ## REACT
 
 * [React Basics](react/react-basics.md)
+* [React Core Concepts](react/react-core-concepts.md)
 * [JS Concepts for React](react/js-concepts-for-react.md)
 
 ## TypeScript
