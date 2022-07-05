@@ -52,3 +52,5 @@
 * [Introduction](asp.net-api/introduction.md)
 * [Logging and CORS](asp.net-api/logging-and-cors.md)
 * [Database Creation](asp.net-api/database-creation.md)
+* [Controllers](asp.net-api/controllers.md)
+* [AutoMapper and DTOs](asp.net-api/automapper-and-dtos.md)
