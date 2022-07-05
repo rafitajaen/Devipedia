@@ -46,3 +46,8 @@
 ## Resumen
 
 * [JS Resumen](resumen/js-resumen.md)
+
+## ASP.NET API
+
+* [Introduction](asp.net-api/introduction.md)
+* [Logging and CORS](asp.net-api/logging-and-cors.md)
