@@ -15,6 +15,50 @@ We will use **Entity Framework Core** that is a modern object-database mapper fo
 * Microsoft.EntityFrameworkCore.Design _by Microsoft_
 {% endhint %}
 
+### Add DbContext
+
+#### Step 1: Add Services
+
+{% code title="Program.cs" %}
+```csharp
+using Microsoft.EntityFrameworkCore;
+
+// Connection with SQL Server Express
+var connString = builder.Configuration.GetConnectionString("StoreDbConnection");
+
+// Add Context to Services
+builder.Services.AddDbContext<StoreDbContext>(options => options.UseSqlServer(connString));
+```
+{% endcode %}
+
+#### Step 2: Add Connection String
+
+{% code title="appsettings.json" %}
+```json
+"ConnectionStrings": {
+    "StoreDbConnection": "Server=localhost\\SQLEXPRESS;Database=StoreDB;Trusted_Connection=True;"
+  },
+```
+{% endcode %}
+
+#### Step 3: Create DbContext
+
+<mark style="color:blue;">**Solution Explorer > Add Folder**</mark>** **<mark style="color:red;">**`Data`**</mark>** **<mark style="color:blue;">**> New File**</mark>
+
+{% code title="StoreDbContext.cs" %}
+```csharp
+using Microsoft.EntityFrameworkCore;
+
+public partial class StoreDbContext : DbContext
+    {
+        public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options) { }
+
+        // TODO: Add DbSets (Tables of our DB) to the context
+        
+    }
+```
+{% endcode %}
+
 ### Database First WorkFlow
 
 Create DB > Create Tables > Scaffold
