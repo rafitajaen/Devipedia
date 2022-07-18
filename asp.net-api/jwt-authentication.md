@@ -162,3 +162,16 @@ public class AuthResponseDto
 ```
 {% endcode %}
 
+**Step 7: Add Authorization to Endpoints**
+
+{% code title="*Controller.cs" %}
+```csharp
+using Microsoft.AspNetCore.Authorization;
+
+[HttpGet]
+[Authorize] // Add this annotation to require authorization to use this endpoint
+// or you can use: [Authorize(Roles = "Admin")]
+// or also [AllowAnonymous]
+```
+{% endcode %}
+
