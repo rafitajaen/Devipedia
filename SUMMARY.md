@@ -54,4 +54,4 @@
 * [Database Creation](asp.net-api/database-creation.md)
 * [Controllers](asp.net-api/controllers.md)
 * [AutoMapper and DTOs](asp.net-api/automapper-and-dtos.md)
-* [Identity and JWT Auth](asp.net-api/identity-and-jwt-auth.md)
+* [Identity](asp.net-api/identity.md)
