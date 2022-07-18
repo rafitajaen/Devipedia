@@ -148,12 +148,14 @@ public class AuthController : ControllerBase
     private readonly ILogger<AuthController> logger;
     private readonly IMapper mapper;
     private readonly UserManager<StoreUser> userManager;
+    private readonly IConfiguration configuration;
 
-    public AuthController(ILogger<AuthController> logger, IMapper mapper, UserManager<StoreUser> userManager)
+    public AuthController(ILogger<AuthController> logger, IMapper mapper, UserManager<StoreUser> userManager, IConfiguration configuration)
     {
         this.logger = logger;
         this.mapper = mapper;
         this.userManager = userManager;
+        this.configuration = configuration;
     }
 
     [HttpPost]
