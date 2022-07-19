@@ -56,3 +56,4 @@
 * [AutoMapper and DTOs](asp.net-api/automapper-and-dtos.md)
 * [Identity](asp.net-api/identity-and-jwt-auth.md)
 * [JWT Authentication](asp.net-api/jwt-authentication.md)
+* [NSwag Studio](asp.net-api/nswag-studio.md)
