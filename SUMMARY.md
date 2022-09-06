@@ -48,6 +48,11 @@
 
 * [JS Resumen](resumen/js-resumen.md)
 
+## Angular
+
+* [Fundamentals](angular/fundamentals.md)
+* [Essential Core](angular/essential-core.md)
+
 ## ASP.NET API
 
 * [Introduction](asp.net-api/introduction.md)
