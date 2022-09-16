@@ -39,6 +39,7 @@
 * [TS Basics](typescript/ts-basics.md)
 * [Types e Interfaces](typescript/types-e-interfaces.md)
 * [Iteraciones](typescript/iteraciones.md)
+* [Resumen](typescript/resumen.md)
 
 ## 🎯 Dart
 
