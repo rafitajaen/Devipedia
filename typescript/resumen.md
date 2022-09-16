@@ -93,4 +93,68 @@ const req = { url: "https://example.com", method: "GET" } as const;
 let padding: string | number;
 ```
 
+### Custom Types
+
+You can create custom types:
+
+* with `type` keyword (custom type and type alias)
+* declaring a `class` or an `interface`
+* declaring an `enum`
+
+{% hint style="info" %}
+**Types** (_Custom Types and Aliases types_) **are not transpiled to JS**.
+{% endhint %}
+
+#### Object Literal Notation
+
+```typescript
+type Patient = {
+name: string;
+heigth?: number; // Optional property
+}
+```
+
 #### Type Guards
+
+`typeof` and `instanceof` are operator to get information about the type of values we have at **RUNTIME**.
+
+{% code title="typeof example" %}
+```typescript
+let padding: number | string = 2;
+
+console.log(typeof padding) // number
+```
+{% endcode %}
+
+`instanceof` need a constructor in order to work.
+
+{% code title="instanceof example" %}
+```typescript
+class Person{
+constructor(public name: string) { }
+}
+
+let person1: Person;
+let person2 = new Person("John");
+
+console.log(person1 instanceof Person) // false. Error.
+console.log(person2 instanceof Person) // true
+```
+{% endcode %}
+
+#### Alias Types
+
+```typescript
+type Foot = number; 
+
+let f:Foot = 2;
+console.log(typeof f); // number, because it's his runtime value.
+```
+
+You can use a type alias to make a shorthand for a type:
+
+```typescript
+type GreetingLike = string | (() => string) | MyGreeter;
+
+function greet(g: GreetingLike): void;
+```
