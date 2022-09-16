@@ -40,6 +40,7 @@
 * [Types e Interfaces](typescript/types-e-interfaces.md)
 * [Iteraciones](typescript/iteraciones.md)
 * [Resumen](typescript/resumen.md)
+* [Ambient Declaration](typescript/ambient-declaration.md)
 
 ## 🎯 Dart
 

@@ -29,12 +29,34 @@ Si reasignas el tipo de una variable en TS obtienes un compile-time error.
 | `boolean` | `unknoun` |   |   |
 | `number`  | `never`   |   |   |
 | `symbol`  | `void`    |   |   |
+| `bigint`  |           |   |   |
 
-`symbol` is a data type that is always unique and immutable. It is used to create unique keys for object properties.
+`bigint` . From ES2020 onwards. Mix numbers and bigint in arithmetic operations is an error because the tow are separate domains.
 
 ```typescript
-const order = Symbol("orderID"); // Notice absence of 'new' Keyword
-const product = {order: 0};
+let foo: bigint = BigInt(100); // the BigInt function
+let bar: bigint = 100n; // a BigInt literal
+
+foo = bar; // error: Type 'bigint' is not assignable to type 'number'.
+bar = foo; // error: Type 'number' is not assignable to type 'bigint'.
+
+console.log(3145 * 10n); // error
+console.log(BigInt(3145) * 10n); // okay!
+```
+
+`symbol` is a data type that is always unique and immutable. It is used to create unique keys for object properties. Started with ECMAScript 2015.
+
+```typescript
+let sym1 = Symbol();
+let sym2 = Symbol("key"); // optional description
+let sym3 = Symbol("key");
+
+sym2 === sym3; // false, symbols are unique
+
+let obj = {
+  [sym1]: "value",
+};
+console.log(obj[sym1]); // "value"
 ```
 
 `undefined` for variables that has not been assigned a value. A function that doesn't return a value have a value of undefined.
@@ -64,3 +86,11 @@ You can also convert an entire object to be type literals:
 ```typescript
 const req = { url: "https://example.com", method: "GET" } as const;
 ```
+
+#### Union Type
+
+```typescript
+let padding: string | number;
+```
+
+#### Type Guards
