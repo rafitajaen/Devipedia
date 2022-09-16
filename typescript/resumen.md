@@ -158,3 +158,35 @@ type GreetingLike = string | (() => string) | MyGreeter;
 
 function greet(g: GreetingLike): void;
 ```
+
+### `readonly` keyword
+
+We wil use `const` for immutable variables and `readonly` for immutable class properties.
+
+```typescript
+class Foo {
+readonly double:number; // Explicit declaration of a class property.
+
+constructor(single:number) { // Implicit declaration
+    this.double = single*2;
+}
+```
+
+### Interfaces
+
+An abstract type that tells the compiler which property names a given object can have.
+
+{% hint style="info" %}
+**Interfaces are a subset of types.**
+
+Like the types, interfaces are not transpiled to JS.
+
+Unlike the types, interfaces can't be used in union or intersections.
+{% endhint %}
+
+### Structural vs Nominal type systems
+
+Nominal = Equal type if names are the same or descendants.
+
+Structural = Equal types if the structure are the same, including access level modifiers ( public, private or protected ) and methods.
+
