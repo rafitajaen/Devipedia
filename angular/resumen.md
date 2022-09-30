@@ -135,3 +135,70 @@ ngOnInit(){}
 
 }
 ```
+
+### Directivas
+
+Las directivas son clases que añaden o modifican el comportamiento de elementos de una app de Angular.
+
+Diferenciamos dos tipos de directivas:&#x20;
+
+* Directivas de atributo: Modificar apariencia o comportamiento de un elemento HTML o componente. Built in: \[ngClass], \[ngStyle], \[ngModel]
+* Directivas Estructurales: Modifican el layout del DOM, añadiendo o eliminando elementos del DOM. Built in: \*ngIf, \*ngFor, \*ngSwitch
+
+Los componentes son directivas de atributo que tienen asociado un template.
+
+Se pueden aplicar varias directivas a un único elemento.
+
+```typescript
+import { Directive, ElementRef, Input } from '@angular/core';
+
+@Directive({ selector: '[myHighlight]' })
+export class HighlightDirective {
+    constructor(el: ElementRef) {
+       el.nativeElement.style.backgroundColor = 'yellow';
+    }
+}
+```
+
+```html
+<p myHighlight>Highlight me!</p>
+```
+
+### Módulos
+
+Los módulos son contenedores para agrupar código en bloques lógicos dentro de una aplicación de Angular.
+
+Toda aplicación de Angular tiene al menos un módulo (AppModule), que es el módulo raíz y el que arranca toda la aplicación.
+
+Su uso es opcional y normalmente implementan una funcionalidad concreta (feature) dentro de la aplicación.
+
+Un módulo puede importar funcionalidades de otros módulos, y exportar las suyas propias.
+
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+@NgModule({
+  imports:      [ BrowserModule ],
+  providers:    [ Logger ],
+  declarations: [ AppComponent ],
+  exports:      [ UserComponent ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+```
+
+### LyfeCycle Hooks
+
+El ciclo de vida de un componente (o directiva) no es más que las diferentes fases por las que pasa dicho componente dentro de una aplicación de Angular.
+
+El ciclo de vida empieza cuando Angular instancia la clase de dicho componente para renderizarlo en el DOM.
+
+En ciertos puntos de este ciclo de vida Angular llama a unas funciones especiales (Hooks), que podemos implementar para controlar el comportamiento del componente en las diferentes fases del ciclo de vida.
+
+* ngOnchanges: Se llama antes de ngOnInit si el componente tiene inputs y cada vez que los inputs cambian. Tiene impacto en la performance.&#x20;
+* ngOnInit: Se llama después del primer ngOnchanges. Lugar donde se setean los inputs. Lugar para fetch.&#x20;
+* ngDoCheck: Lugar para detectar y actuar frente a cambios que Angular no puede detectar por sí mismo.&#x20;
+* ngOnDestroy: Antes de que Angular destruya la instancia. Lugar para desuscribirse de observables, detach Event-Handlers (Listeners), y evitar memory leaks.
+
+<figure><img src="https://github.com/sudheerj/angular-interview-questions/raw/master/images/lifecycle.png" alt=""><figcaption><p>Angular LyfeCycle Hooks</p></figcaption></figure>
