@@ -54,6 +54,7 @@
 
 * [Fundamentals](angular/fundamentals.md)
 * [Essential Core](angular/essential-core.md)
+* [Resumen](angular/resumen.md)
 
 ## ASP.NET API
 
