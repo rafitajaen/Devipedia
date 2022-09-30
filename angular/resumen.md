@@ -98,3 +98,40 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { }
 ```
+
+### Components
+
+Un componente es la unidad mínima de construcción de una aplicación de Angular y representa una porción de la interfaz de usuario.
+
+Para definir un componente asociamos el decorador `@Component` a una clase que será la encargada de definir la interacción con el DOM.
+
+Este decorador recibe los siguientes parámetros:
+
+* Selector: Nombre del custom element para renderizarlo en el DOM.
+* Template\*: Representa la porción de UI que queremos renderizar en el DOM. HTML + sintaxis Angular que añade funcionalidad (property binding).
+* Styles\*: Opcional. Para la apariencia.
+
+\*Angular aporta la opción de declarar los templates Inline y en archivos propios.
+
+Toda aplicación tiene al menos un componente app-root, que es la raíz del árbol de componentes de Angular.
+
+Un componente es una directiva que tiene asociado un template.
+
+```bash
+ng generate component hero
+```
+
+```typescript
+import { Component } from "@angular/core"
+
+@Component({
+   selector: 'app-hero',
+   templateUrl: './hero.component.html'
+   styleUrls: ['./hero.component.scss']
+})
+export class HeroComponent implements OnInit {
+
+ngOnInit(){}
+
+}
+```
