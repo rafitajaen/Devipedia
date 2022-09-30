@@ -40,3 +40,61 @@ Algunas de las funcionalidades que añade TS a JS son Tipos, Interfaces, Decorad
 ```bash
 npm install typescript -D
 ```
+
+### Angular Building Blocks
+
+{% hint style="info" %}
+Componentes Directivas Módulos Servicios Pipes Guards
+{% endhint %}
+
+Los bloques no son más que clases de JS, pero para comprenderlas mejor debemos definir qué es un decorador:
+
+Los decoradores son una funcionalidad experimental (ECMAScript ES2015+) que se utiliza para modificar la declaración y el comportamiento de una clase.
+
+Angular utiliza estos decoradores, junto con los metadatos, para aportar una funcionalidad concreta a cada bloque.
+
+```bash
+ng new my-new-app
+```
+
+### Angular Minimal App
+
+**Raíz del proyecto:**&#x20;
+
+* angular.json : Configuración de angular.&#x20;
+* tsconfig.json: Configuración TS.&#x20;
+* package.json: Configuración dependencias node.
+
+**src/**&#x20;
+
+* main.ts: incluye bootstrapModule() para cargar el módulo principal de la app.&#x20;
+* index.html: template donde se define app-root
+
+**app/**&#x20;
+
+* app.module.ts: Incluye bootstrap que define el componente raíz y lo inserta en el index.html.&#x20;
+* app.component.ts&#x20;
+* app-routing.module.ts
+
+**assets/**
+
+**environments/**
+
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+ 
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+ 
+@NgModule({
+  declarations: [ AppComponent ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
