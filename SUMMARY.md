@@ -25,6 +25,7 @@
 
 * [Terminal Basics](git/terminal-basics.md)
 * [Git Basics](git/git-basics.md)
+* [Resumen](git/resumen.md)
 
 ## REACT
 
